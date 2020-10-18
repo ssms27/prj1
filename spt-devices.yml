@@ -1,0 +1,26 @@
+---
+#tor1:
+#  hostname: 'iosvl2-1'
+#  description: 'tor'
+#  monitor_port_ip: '192.168.179.129'
+#  monitor_port_port: '17001'
+#  device_type: 'cisco_ios'
+#tor2:
+#  hostname: 'iosvl2-2'
+#  description: 'tor'
+#  monitor_port_ip: '192.168.179.129'
+#  monitor_port_port: '17003'
+#  device_type: 'cisco_ios'
+core1:
+  hostname: 'nx-osv-1'
+  description: 'tor'
+  monitor_port_ip: '192.168.179.129'
+  monitor_port_port: '17005'
+  device_type: 'cisco_ios_telnet'
+
+core2:
+  hostname: 'nx-osv-2'
+  description: 'tor'
+  monitor_port_ip: '192.168.179.129'
+  monitor_port_port: '17007'
+  device_type: 'cisco_ios_telnet'
