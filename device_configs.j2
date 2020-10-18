@@ -1,6 +1,33 @@
 spanning-tree mode rapid-pvst
-spanning-tree vlan 1-4094 priority
-no vlan 4
+{% if device_name = 'core1' %}
+spanning-tree vlan 1-4094 priority 8192
+{% elif device_name = 'core2' %}
+spanning-tree vlan 1-4094 priority 16384
+{% else %}
+spanning-tree vlan 1-4094 priority 40960
+{% endif %}
+#common configs for all
+no vlan 1-1024
+vlan 1
 vlan 2
 vlan 3
-vlan 5
+vlan 4
+{%  if device_name = 'core1' %}
+interface Ethernet2/1
+  description uplink_iosvl2-1
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1-4
+  no shutdown
+interface Ethernet2/2
+  description uplink_iosvl2-2
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1-4
+  no shutdown
+interface Ethernet2/3
+  description crosslink
+  switchport
+  switchport mode trunk
+  switchport trunk allowed vlan 1-4
+  no shutdown
